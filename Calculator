@@ -51,14 +51,22 @@ public class Calculator
     
     calcFrame = new Frame();
     calcFrame.setLayout(new GridLayout(4,2));
-    resultLabel = new Label("Result: ")
+    resultLabel = new Label("Result: ");
     register = new Label("0.0", Label.RIGHT);
-    entryLabel = new Label("Enter #: ")
+    entryLabel = new Label("Enter #: ");
     inputField = new TextField("", 10);
     
     add = new Button("+");
+    subtract = new Button("-");
+    clear = new Button ("Clear");
+    
+    add.setActionCommand("add");
     subtract.setActionCommand("subtract");
-    clear.setActionCommand("clear');
+    clear.setActionCommand("clear");
+    
+    add.addActionListener(operation);
+    subtract.addActionListener(operation);
+    clear.addActionListener(clearOperation);
     
     calcFrame.add(resultLabel);
     calcFrame.add(register);
