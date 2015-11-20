@@ -1,6 +1,8 @@
+import java.awt.*;
+import java.awt.event.*;
+
 public class Calculator
 {
-  //defines action listener for numeric buttons LISDFJKGVSDBVAV
   private static class NumericHandler implements ActionListener
   {
     public void actionPerformed (ActionEvent event)
@@ -53,3 +55,27 @@ public class Calculator
     register = new Label("0.0", Label.RIGHT);
     entryLabel = new Label("Enter #: ")
     inputField = new TextField("", 10);
+    
+    add = new Button("+");
+    subtract.setActionCommand("subtract");
+    clear.setActionCommand("clear');
+    
+    calcFrame.add(resultLabel);
+    calcFrame.add(register);
+    calcFrame.add(entryLabel);
+    calcFrame.add(inputField);
+    calcFrame.add(add);
+    calcFrame.add(subtract);
+    calcFrame.add(clear);
+    calcFrame.pack();
+    calcFrame.show();
+    calcFrame.addWindowListener(new WindowAdapter()
+      {
+        public void windowClosing(WindowEvent event)
+        {
+          calcFrame.dispose();
+          System.exit(0);
+        }
+      });
+  }
+}
