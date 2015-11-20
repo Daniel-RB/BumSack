@@ -1,5 +1,6 @@
 public class Calculator
 {
+  //defines action listener for numeric buttons LISDFJKGVSDBVAV
   private static class NumericHandler implements ActionListener
   {
     public void actionPerformed (ActionEvent event)
