@@ -13,6 +13,10 @@ public class Calculator
       whichButton=event.getActionCommand();
       if(whichButton.equals("add"))
         result = result + secondOperand;
+      else if(whichButton.equals("multiplication"))
+          result = result * secondOperand;
+      else if(whichButton.equals("boob"))
+    	  result = 8008;
       else
         result = result- secondOperand;
       register.setText("" + result);
@@ -43,6 +47,8 @@ public class Calculator
     Label entryLabel;
     Button add;
     Button subtract;
+    Button multiplication;
+    Button boob;
     Button clear;
     
     operation = new NumericHandler();
@@ -54,18 +60,24 @@ public class Calculator
     resultLabel = new Label("Result: ");
     register = new Label("0.0", Label.RIGHT);
     entryLabel = new Label("Enter #: ");
-    inputField = new TextField("", 10);
+    inputField = new TextField("", 20);
     
     add = new Button("+");
     subtract = new Button("-");
+    multiplication = new Button("*");
+    boob = new Button("(.)(.)");
     clear = new Button ("Clear");
     
     add.setActionCommand("add");
     subtract.setActionCommand("subtract");
+    multiplication.setActionCommand("multiplication");
+    boob.setActionCommand("boob");
     clear.setActionCommand("clear");
     
     add.addActionListener(operation);
     subtract.addActionListener(operation);
+    multiplication.addActionListener(operation);
+    boob.addActionListener(operation);
     clear.addActionListener(clearOperation);
     
     calcFrame.add(resultLabel);
@@ -74,9 +86,11 @@ public class Calculator
     calcFrame.add(inputField);
     calcFrame.add(add);
     calcFrame.add(subtract);
+    calcFrame.add(multiplication);
+    calcFrame.add(boob);
     calcFrame.add(clear);
     calcFrame.pack();
-    calcFrame.show();
+    calcFrame.setVisible(true);
     calcFrame.addWindowListener(new WindowAdapter()
       {
         public void windowClosing(WindowEvent event)
