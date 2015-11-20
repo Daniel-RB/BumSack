@@ -1,0 +1,54 @@
+public class Calculator
+{
+  private static class NumericHandler implements ActionListener
+  {
+    public void actionPerformed (ActionEvent event)
+    {
+      double secondOperand;
+      String whichButton;
+      secondOperand = Double.valueOf(inputField.getText()).doubleValue();
+      whichButton=event.getActionCommand();
+      if(whichButton.equals("add"))
+        result = result + secondOperand;
+      else
+        result = result- secondOperand;
+      register.setText("" + result);
+      inputField.setText("");
+    }
+  }
+  
+  private static class ClearHandler implements ActionListener
+  {
+    public void actionPerformed(ActionEvent event)
+    {
+      result = 0.0;
+      register.setText("0.0");
+      inputField.setText("");
+    }
+  }
+  
+  private static TextField inputField;
+  private static Label register;
+  private static Frame calcFrame;
+  private static double result;
+  
+  public static void main(String[] args)
+  {
+    NumericHandler operation;
+    ClearHandler clearOperation;
+    Label resultLabel;
+    Label entryLabel;
+    Button add;
+    Button subtract;
+    Button clear;
+    
+    operation = new NumericHandler();
+    clearOperation = new ClearHandler();
+    result = 0.0;
+    
+    calcFrame = new Frame();
+    calcFrame.setLayout(new GridLayout(4,2));
+    resultLabel = new Label("Result: ")
+    register = new Label("0.0", Label.RIGHT);
+    entryLabel = new Label("Enter #: ")
+    inputField = new TextField("", 10);
